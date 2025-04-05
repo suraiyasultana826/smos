@@ -1,4 +1,5 @@
-
+//Suria Sultana
+//id: 24549010107
 package javaapplication21;
 class InvalidPerformanceRatingException extends Exception { 
     public InvalidPerformanceRatingException(String message) {
@@ -64,7 +65,7 @@ class InvalidContactNumberException extends Exception {
      
      
      
-     abstract void salaryCalculation(int workingHours,int hourlyWages);
+     abstract void salaryCalculation(int workingHours,int wagesPerHour);
      
      abstract void displayInformation();
 }
@@ -75,24 +76,24 @@ class Full_Time_Employee extends Employee{
     @Override
     void displayInformation(){
         
-        System.out.println("Status: Full Time Employee");
+        System.out.println("Full Time Employee");
         System.out.println("Name: "+getName());
         System.out.println("ID: "+getId());
         System.out.println("Contact Number: "+getContactNumber());
-        System.out.println("Rating: "+getRating()); // Added missing ":"
+        System.out.println("Rating: "+getRating()); 
                 
         
     }
    
     @Override
-    void salaryCalculation(int workingHours,int hourlyWages){
+    void salaryCalculation(int workingHours,int wagesPerHour){
         int transportationFee=2000;
         int lunch=4500;
         int disbursement = transportationFee + lunch;
 
-        System.out.println("Salary of  " +getName()+" : "+workingHours*hourlyWages);
+        System.out.println("Salary of  " +getName()+" : "+workingHours*wagesPerHour);
         System.out.println("Disbursement: "+disbursement);
-        System.out.println("Total Withdrawable amount: "+(workingHours*hourlyWages+disbursement));
+        System.out.println("Total Withdrawable amount: "+(workingHours*wagesPerHour+disbursement));
         System.out.println();
                 
     }
@@ -105,18 +106,18 @@ class Part_Time_Employee extends Employee{
      @Override
     void displayInformation(){
         
-        System.out.println("Status: Part Time Employee (No disbursement)"); // Corrected status
+        System.out.println("Part Time Employee (No disbursement)"); 
         System.out.println("Name: "+getName());
         System.out.println("ID: "+getId());
         System.out.println("Contact Number: "+getContactNumber());
-        System.out.println("Rating: "+getRating()); // Added missing ":"
+        System.out.println("Rating: "+getRating()); 
                 
         
     }
      
      @Override
-    void salaryCalculation(int workingHours,int hourlyWages){
-        System.out.println("Salary of Part-Time-Employee: "+workingHours*hourlyWages);
+    void salaryCalculation(int workingHours,int wagesPerHour){
+        System.out.println("Salary of Part-Time-Employee: "+workingHours*wagesPerHour);
     }
     
      
@@ -130,25 +131,25 @@ public class JavaApplication21 {
 
     public static void main(String[] args) {
            try{
-             Full_Time_Employee f=new Full_Time_Employee();
-        f.setId(5678);
-        f.setName("Tanu");
-        f.setContactNumber( "0151677570");
-        f.setRating(1);
+             Full_Time_Employee fullTimeEmployee=new Full_Time_Employee();
+        fullTimeEmployee.setId(907);
+        fullTimeEmployee.setName("Tanu");
+        fullTimeEmployee.setContactNumber( "0151677570");
+        fullTimeEmployee.setRating(90);
         
         
            
 
-        f.displayInformation();
-        f.salaryCalculation(450,30);
+        fullTimeEmployee.displayInformation();
+        fullTimeEmployee.salaryCalculation(200,50);
         
-         Part_Time_Employee p=new Part_Time_Employee();
-        p.setId(5679);
-        p.setName("Suraiya Sultana");
-        p.setContactNumber( "0199394920");
-        p.setRating(5);
-        p.displayInformation();
-        p.salaryCalculation(120,20);
+         Part_Time_Employee partTimeEmployee=new Part_Time_Employee();
+        partTimeEmployee.setId(387);
+        partTimeEmployee.setName("Suraiya Sultana");
+        partTimeEmployee.setContactNumber( "0199394920");
+        partTimeEmployee.setRating(4);
+        partTimeEmployee.displayInformation();
+        partTimeEmployee.salaryCalculation(80,50);
         }
         catch (InvalidPerformanceRatingException  e){
             System.out.println(e.getMessage());
